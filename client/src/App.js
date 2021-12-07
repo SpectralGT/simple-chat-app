@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import "./App.css"
 
-const URL = 'ws://localhost:8080';
+const URL = 'ws://simple-chat-app-atharv.herokuapp.com/8080';
 
 const App = () => {
 	const [user, setUser] = useState('Atharv');
@@ -37,8 +38,9 @@ const App = () => {
   	return (
 	    <div>
 	        <label htmlFor="user">
-	          Name :
+	          Name:     
 	          <input
+			  className="nameInput"
 	            type="text"
 	            id="user"
 	            placeholder="User"
@@ -46,15 +48,6 @@ const App = () => {
 	            onChange={e => setUser(e.target.value)}
 	          />
 	        </label>
-
-	        <ul>
-					{messages.map((ele, index) => {
-						return <li key={index}>
-							<b>{ele.user}</b>: <em>{ele.message}</em>
-						</li>
-				})}
-	        </ul>
-
 	        <form
 	          action=""
 	          onSubmit={e => {
@@ -71,6 +64,15 @@ const App = () => {
 	          />
 	          <input type="submit" value={'Send'} />
 	        </form>
+
+	        <ul>
+					{messages.map((ele, index) => {
+						return <li key={index}>
+							<b>{ele.user}</b>: <em>{ele.message}</em>
+						</li>
+				})}
+	        </ul>
+
 	    </div>
   	)
 }
