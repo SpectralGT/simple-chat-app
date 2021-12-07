@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const serveStatic = require('serve-static');
+const port = process.env.PORT || 5000;
 app.use(express.static(path.join(__dirname,"./client/build")));
 
 app.get('/', (req, res) => {
@@ -23,4 +23,4 @@ wss.on('connection', (ws) => {
   });
 });
 
-app.listen(5000);
+app.listen(port);
