@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 web: node server.js
-=======
-web: node ./server/server.js
->>>>>>> 88eaebacb5f1e11ed57e80a80fee6635114eb48f
