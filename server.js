@@ -11,7 +11,7 @@ app.listen(port);
 
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({server:app});
+const wss = new WebSocket.Server({server:app},()=>{console.log('web socket started')});
 console.log("server started");
 wss.on('connection', (ws) => {
   ws.on('message', (data) => {
