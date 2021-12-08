@@ -1,16 +1,17 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname,"./client/build")));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
+app.listen(port);
 
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({server});
+const wss = new WebSocket.Server({server:app});
 console.log("server started");
 wss.on('connection', (ws) => {
   ws.on('message', (data) => {
@@ -23,4 +24,3 @@ wss.on('connection', (ws) => {
   });
 });
 
-app.listen(port);

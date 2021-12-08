@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css"
 
-const URL = location.origin.replace(/^http/, 'ws');
-
+const URL = origin.replace(/^http/, 'ws');
+console.log(URL);
 const App = () => {
 	const [user, setUser] = useState('Atharv');
   	const [message, setMessage] = useState([]);
