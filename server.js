@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({port:8080});
+const wss = new WebSocket.Server({server});
 console.log("server started");
 wss.on('connection', (ws) => {
   ws.on('message', (data) => {
