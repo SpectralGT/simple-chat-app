@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css"
 
-const URL = 'wss://simple-chat-app-atharv.herokuapp.com/8080';
+const URL = location.origin.replace(/^http/, 'ws');
 
 const App = () => {
 	const [user, setUser] = useState('Atharv');
