@@ -19,9 +19,14 @@ server.listen(port, ()=>{
 
 wss.on('listening',()=>{console.log('web sockets started')});
 
+var msList = [];
+
 wss.on('connection', (ws) => {
-  console.log('started');
+
+  msList.forEach((ms) => { ws.send(JSON.stringify(ms)) });
+
   ws.on('message', (data) => {
+    msList = [JSON.parse(data), ...msList];
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send(JSON.stringify(JSON.parse(data)));
